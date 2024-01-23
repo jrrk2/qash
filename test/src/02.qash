@@ -1,0 +1,21 @@
+!open-account asset Assets:Currentassets:HogeBanksavingsaccount GBP #cash
+!open-account asset Assets:Currentassets:Cash GBP #cash
+!open-account asset Assets:Advancepayment GBP
+!open-account equity capital:Startingbalance GBP
+!open-account expense Expense:Food GBP
+!open-account income Income:Salary GBP
+!open-account liability Liability:Accountspayable GBP
+
+(* comment *)
+* 2023-05-08 "Convenience store" #tag1 #tag2
+   Assets:Currentassets:Cash -502
+   Expense:Food 502
+
+!import "02_overlay.qash"
+* 2023-05-09 "Convenience Store Fuga"
+   Assets:Currentassets:Cash -1502
+   Expense:Food 1300
+   Assets:Advancepayment 202
+
+// comment
+(*!import "hogehoge.qash"(* nested comment is allowed *)*)

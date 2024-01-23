@@ -33,3 +33,9 @@ misc
 .~lock.*
 *.sqlite3
 *.html
+*~
+lib/l.ml
+lib/model_patched.ml
+lib/p.ml
+lib/p.mli
+qashtop
