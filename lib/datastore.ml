@@ -99,7 +99,7 @@ let query stmt values =
     let start_time = Unix.gettimeofday () in
     let result = f () in
     let end_time = Unix.gettimeofday () in
-    Dream.debug (fun m -> m "QUERY: %f %s" (end_time -. start_time) stmt.sql);
+    Printf.fprintf stderr "QUERY: %f %s" (end_time -. start_time) stmt.sql;
     result
   in
 
