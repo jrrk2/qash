@@ -2,10 +2,10 @@ open Util
 open Lwt.Infix
 
 let to_json filename =
-  match Parser.parse_file filename with
+  match Qparser.parse_file filename with
   | Error s -> failwith s
   | Ok r ->
-      Model.yojson_of_directives r |> Yojson.Safe.to_string |> print_endline
+      Model.string_of_directives r |> print_endline
 
 let of_json filename =
   try
@@ -44,7 +44,7 @@ let dump in_filename out_filename =
   let%lwt m, _ = Loader.load_file in_filename in
   let filepath = Filename.concat (Sys.getcwd ()) out_filename in
   Sql_writer.dump filepath m >|= fun _ -> ()
-
+(*
 let serve =
   let interface, port =
     match
@@ -56,11 +56,12 @@ let serve =
     | _ -> failwithf "Invalid BIND: %s" (Sys.getenv "BIND")
   in
   Web_server.serve ~interface ~port
-
+*)
 let generate num_entries =
   Generator.generate_sample num_entries |> print_endline
-
+(*
 let dump_data_json in_filename =
   Lwt_main.run
     (Web_server.generate_json in_filename
     >|= Yojson.Safe.to_string >|= print_string)
+*)
