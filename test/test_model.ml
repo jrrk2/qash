@@ -144,7 +144,7 @@ let test_case1 () =
       ]
     in
     let got =
-      expected |> string_of_directives |> Parser.parse_string |> Result.get_ok
+      expected |> string_of_directives |> Qparser.parse_string |> Result.get_ok
     in
     got = expected)
 
