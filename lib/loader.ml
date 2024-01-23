@@ -52,7 +52,7 @@ let load_file' mtx filename =
   let is_nonempty_transaction (t : Model.transaction) = t.postings <> [] in
   let rec aux filename : Model.t * note list =
     let wd = Filename.dirname filename in
-    match Parser.parse_file filename with
+    match Qparser.parse_file filename with
     | Error e -> failwith e
     | Ok directives ->
         directives
