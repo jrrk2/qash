@@ -102,7 +102,7 @@ let test_case1 () =
       expected_import2;
     ]
   in
-  match Parser.parse_string prog with
+  match Qparser.parse_string prog with
   | Ok actual when expected = actual -> ()
   | Ok _ ->
       Printf.eprintf "unexpected result\n";
